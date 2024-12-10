@@ -56,7 +56,7 @@ Things you may want to cover:
 | Column             | Type      | Options                        |
 | ------------------ | --------- | ------------------------------ |
 | stamp_number       | integer   | null: false                    |
-| stamp_card         |references | null: false, foreign_key: true |
+| stampcard          |references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to:stampcard
