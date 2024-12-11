@@ -3,40 +3,46 @@
 }
 
 .top-page-header {
+  background-color: #333333;
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 4vh 2vw;
   display: flex;
   flex-direction: column;
+}
+
+.ncs-icon {
+  width: 17%;
+  height: auto;
 }
 
 .lists-right {
   display: flex;
   list-style: none;
-  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
   font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #333333;
+  color: white;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: white;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #333333;
+  margin-right: 3vw;
+  color: white;
 }

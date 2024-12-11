@@ -1,26 +1,87 @@
+*{
+  box-sizing: border-box;
+}
+
 .main {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('dj_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-position: top center;
+}
+
+.ncs-icon {
+  width: 18%;
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+
+.lists {
+  font-weight: 545;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  list-style: none;
+  position: absolute;
+  right: 25px;
+  top: 50px;
+}
+
+.user-nickname {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.logout {
+  border: 1px solid white;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.login {
+  border: 1px solid white;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin-right: 22px;
+}
+
+.sign-up {
+  border: 1px solid white;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin-right: 10px;
+} 
+
+.top-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 50px);
 }
 
 .button-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 50px; /* 子要素間のスペースを設定 */
+  color: black;
+  position: absolute;
+  top: 45vh;
 }
 
 .button-container button {
-  padding: 15px 30px;
-  font-size: 18px;
-  color: white;
-  background-color: #4caf50;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 50px 50px;
+  background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.button-container button:hover {
-  background-color: #4caf49;
 }
