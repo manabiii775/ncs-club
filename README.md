@@ -38,7 +38,7 @@ Things you may want to cover:
 ### Association
 - has_many :stampcards
 - has_many :rewards
-- belongs_to:qr_code
+- belongs_to :qr_code
 
 ## stampcards テーブル
 
@@ -49,7 +49,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :stamps
-- belongs_to:user
+- belongs_to :user
 
 ## stamps テーブル
 
@@ -59,7 +59,7 @@ Things you may want to cover:
 | stampcard          |references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to:stampcard
+- belongs_to :stampcard
 
 ## qr_codes テーブル
 
@@ -79,4 +79,4 @@ Things you may want to cover:
 | user               |references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to:user
+- belongs_to :user
