@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_09_120528) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_12_031208) do
   create_table "qr_codes", charset: "utf8mb3", force: :cascade do |t|
     t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stampcards", charset: "utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

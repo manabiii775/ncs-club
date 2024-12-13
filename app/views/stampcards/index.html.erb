@@ -16,7 +16,7 @@
   <div class="top-page">
     <div class="button-container">
       <button onclick="startCamera()">カメラを起動</button>
-      <button onclick="viewStampCard()">スタンプカード</button>
+      <%= link_to 'スタンプカード', stampcard_path(@stampcards), class: 'button-link' %>
     </div>
   </div>
 </header>

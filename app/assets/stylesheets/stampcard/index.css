@@ -68,6 +68,18 @@
   align-items: center;
 }
 
+.button-link {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 50px 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 .button-container {
   display: flex;
   gap: 50px; /* 子要素間のスペースを設定 */
