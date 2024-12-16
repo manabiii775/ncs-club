@@ -1,5 +1,5 @@
 class QrCode < ApplicationRecord
-  validates :total_stamps, presence: true
+  validates :code, presence: true
 
-  belongs_to :user
+  has_many :users
 end
