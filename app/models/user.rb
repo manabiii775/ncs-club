@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :stampcards
+  belongs_to :qr_code
 end

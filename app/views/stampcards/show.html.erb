@@ -1,6 +1,15 @@
-<div class="stamp-card">
-  <h1>スタンプカード</h1>
-  <p>ユーザー： <%= current_user.nickname %></p>
-  <p>スタンプ数：</p>
+<%= render "shared/header" %>
+
+<div class="stamp-card-container">
+  <h1>ポイントカード</h1>
+  <p>スタンプ数：<%= @stampcard.total_stamps %></p>
+
+  <div class="stamp-card">
+    <%= image_tag "stamp-card", alt: "スタンプカード", class: "stamp-card-image" %>
+    <div class="stamps">
+      <% @stamps.each do |stamp| %>
+        <%= image_tag "stamp.png", alt: "スタンプ", class: "stamp-image", style: "position: absolute; left: #{stamp.x}px; top: #{stamp.y}px;" %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<%= image_tag "image1.png", alt: "スタンプ", class: "stamp-image" %>

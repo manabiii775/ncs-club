@@ -1,5 +1,5 @@
 /* スタンプカード全体のスタイル */
-.stamp-card {
+.stamp-card-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -21,10 +21,14 @@
   margin-bottom: 20px;
 }
 
+/* スタンプカード画像のスタイル */
+.stamp-card-image {
+  width: 100%;
+  display: block;
+}
+
 /* スタンプ画像のスタイル */
-.stamp-card img {
-  width: 100px;
-  height: 100px;
-  display: inline-block;
-  vertical-align: middle;
+.stamp-image {
+  width: 30px;
+  height: 30px;
 }

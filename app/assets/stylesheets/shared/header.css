@@ -10,9 +10,11 @@
   flex-direction: column;
 }
 
-.ncs-icon {
-  width: 17%;
-  height: auto;
+.ncs-icon2 {
+  width: 10%;
+  position: absolute;
+  left: 30px;
+  top: 5px;
 }
 
 .lists-right {

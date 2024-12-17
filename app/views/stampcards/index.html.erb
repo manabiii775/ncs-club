@@ -18,7 +18,9 @@
       <button id="start-camera">カメラを起動</button>
       <video id="camera" width="600" height="400" style="display: none;"></video>
       <canvas id="canvas" style="display: none;"></canvas>
-      <%= link_to 'スタンプカード', stampcard_path(@stampcards), class: 'button-link' %>
+      <% @stampcards.each do |stampcard| %>
+        <%= link_to 'スタンプカード', stampcard_path(stampcard), class: 'button-link' %>
+      <% end %>
     </div>
   </div>
 
