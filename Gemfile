@@ -82,3 +82,4 @@ end
 
 gem "devise"
 gem "rqrcode"
+gem "chunky_png"

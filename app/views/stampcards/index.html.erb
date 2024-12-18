@@ -1,5 +1,5 @@
 
-<header class="main">
+<header class="main" data-user-id="<%= current_user&.id %>">
   <%= link_to image_tag("ncs-logo3.PNG", class:"ncs-icon") %>
   <div class='nav'>
     <ul class='lists'>
@@ -12,17 +12,24 @@
       <% end %>
     </ul>
   </div>
+</header>
 
-  <div class="top-page">
-    <div class="button-container">
-      <button id="start-camera">カメラを起動</button>
-      <video id="camera" width="600" height="400" style="display: none;"></video>
-      <canvas id="canvas" style="display: none;"></canvas>
+<div class="top-page">
+  <div class="button-container">
+    <button id="start-camera">カメラを起動</button>
+    <video id="camera" width="600" height="400" style="display: none;"></video>
+    <canvas id="canvas" style="display: none;"></canvas>
+    <% if user_signed_in? %>
       <% @stampcards.each do |stampcard| %>
         <%= link_to 'スタンプカード', stampcard_path(stampcard), class: 'button-link' %>
       <% end %>
-    </div>
+    <% else %>
+      <p>ログインしているユーザーのみスタンプカードを表示できます。</p>
+    <% end %>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.js"></script>
-</header>
+<!-- jsQRライブラリの読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.js"></script>
+<!-- カスタムJavaScriptファイルの読み込み -->
+<script src="/assets/camera.js"></script>

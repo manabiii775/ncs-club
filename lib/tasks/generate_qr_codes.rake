@@ -1,13 +1,33 @@
-# QRコードの生成と保存
-require 'rqrcode'
+namespace :qr do
+  desc "Generate QR code"
+  task generate: :environment do
+    require 'rqrcode'
+    require 'chunky_png'
 
-#一意のコードを生成
-unique_code = "shared_qr_code"
+    qr_content = { qr_code: "shared_qr_code" }.to_json
 
-#QRコードを生成
-qr_code = RQRCode::QRCode.new("https://example.com/redeem?code=#{unique_code}")
-png = qr_code.as_png(size: 200)
+    # QRコードを生成
+    qrcode = RQRCode::QRCode.new(qr_content)
 
-#QRコードのファイルを保存
-file_path = Rails.root.join("public/qr_code.png")
-IO.binwrite(file_path, png.to_s)
+    # QRコードを画像ファイルとして保存
+    png = qrcode.as_png(
+      resize_gte_to: false,
+      resize_exactly_to: false,
+      fill: 'white',
+      color: 'black',
+      size: 200, # サイズをバイト数に対応する値に設定
+      border_modules: 4, # ボーダーの幅を小さくする
+      module_px_size: 6, # 各モジュールのピクセルサイズを小さくする
+      file: nil
+    ) 
+
+    # 画像ファイルとして保存するパスを設定
+    file_path = "public/qr_code.png"
+
+    # 画像ファイルとして保存
+    IO.binwrite(file_path, png.to_s)
+
+    puts "QRコードを#{file_path}に保存しました。"
+  end
+end
+

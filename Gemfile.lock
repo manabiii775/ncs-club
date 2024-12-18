@@ -278,6 +278,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   capybara
+  chunky_png
   debug
   devise
   importmap-rails

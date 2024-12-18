@@ -8,7 +8,7 @@
     <%= image_tag "stamp-card", alt: "スタンプカード", class: "stamp-card-image" %>
     <div class="stamps">
       <% @stamps.each do |stamp| %>
-        <%= image_tag "stamp.png", alt: "スタンプ", class: "stamp-image", style: "position: absolute; left: #{stamp.x}px; top: #{stamp.y}px;" %>
+        <%= image_tag "stamp.png", alt: "スタンプ", class: "stamp-image" %>
       <% end %>
     </div>
   </div>

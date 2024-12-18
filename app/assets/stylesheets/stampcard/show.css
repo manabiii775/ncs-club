@@ -31,4 +31,15 @@
 .stamp-image {
   width: 30px;
   height: 30px;
+  position: absolute;
 }
+.stamp-position-1 { left: 20px; top: 20px; }
+.stamp-position-2 { left: 80px; top: 20px; }
+.stamp-position-3 { left: 140px; top: 20px; }
+.stamp-position-4 { left: 200px; top: 20px; }
+.stamp-position-5 { left: 260px; top: 20px; }
+.stamp-position-6 { left: 20px; top: 80px; }
+.stamp-position-7 { left: 80px; top: 80px; }
+.stamp-position-8 { left: 140px; top: 80px; }
+.stamp-position-9 { left: 200px; top: 80px; }
+.stamp-position-10 { left: 260px; top: 80px; }
