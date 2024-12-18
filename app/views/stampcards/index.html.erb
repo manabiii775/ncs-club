@@ -19,13 +19,18 @@
     <button id="start-camera">カメラを起動</button>
     <video id="camera" width="600" height="400" style="display: none;"></video>
     <canvas id="canvas" style="display: none;"></canvas>
-    <% if user_signed_in? %>
-      <% @stampcards.each do |stampcard| %>
-        <%= link_to 'スタンプカード', stampcard_path(stampcard), class: 'button-link' %>
+
+    <div class="stamp-cards">
+      <% if user_signed_in? %>
+        <% @stampcards.each do |stampcard| %>
+          <div class="stamp-card-container" data-stampcard-id="<%= stampcard.id %>">
+            <%= link_to 'スタンプカード', stampcard_path(stampcard), class: 'button-link' %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>ログインしているユーザーのみスタンプカードを表示できます。</p>
       <% end %>
-    <% else %>
-      <p>ログインしているユーザーのみスタンプカードを表示できます。</p>
-    <% end %>
+    </div>
   </div>
 </div>
 

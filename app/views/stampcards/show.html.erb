@@ -1,10 +1,10 @@
 <%= render "shared/header" %>
 
-<div class="stamp-card-container">
+<div class="stamp-card-main" >
   <h1>ポイントカード</h1>
   <p>スタンプ数：<%= @stampcard.total_stamps %></p>
 
-  <div class="stamp-card">
+  <div class="stamp-card" >
     <%= image_tag "stamp-card", alt: "スタンプカード", class: "stamp-card-image" %>
     <div class="stamps">
       <% @stamps.each_with_index do |stamp, index| %>
@@ -13,3 +13,8 @@
     </div>
   </div>
 </div>
+
+<!-- jsQRライブラリの読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.js"></script>
+<!-- カスタムJavaScriptファイルの読み込み -->
+<script src="/assets/camera.js"></script>

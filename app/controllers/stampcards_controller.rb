@@ -27,7 +27,8 @@ class StampcardsController < ApplicationController
       end
 
       if decoded_qr_content["qr_code"] == "shared_qr_code"
-        stampcard = current_user.stampcards.find_by(id: params[:id])
+        stampcard_id = qr_content["stampcard_id"]
+        stampcard = current_user.stampcards.find_by(id: stampcard_id)
         Rails.logger.info("スタンプカード: #{stampcard.inspect}")
   
         if stampcard
@@ -35,6 +36,8 @@ class StampcardsController < ApplicationController
           current_stamp_count = stampcard.stamps.count
           # スタンプがまだ10個に達していない場合のみ追加
           if current_stamp_count < 10
+            # 共通のQRコードを使用
+            qr_code = QrCode.find_or_create_by(code: "shared_qr_code")
             stampcard.stamps.create!(stamp_number: current_stamp_count + 1)
             render json: { message: "スタンプが追加されました！" }, status: :ok
           else
