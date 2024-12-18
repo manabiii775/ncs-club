@@ -29,17 +29,19 @@
 
 /* スタンプ画像のスタイル */
 .stamp-image {
-  width: 30px;
-  height: 30px;
+  width: 80px;
+  height: 80px;
   position: absolute;
 }
-.stamp-position-1 { left: 20px; top: 20px; }
-.stamp-position-2 { left: 80px; top: 20px; }
-.stamp-position-3 { left: 140px; top: 20px; }
-.stamp-position-4 { left: 200px; top: 20px; }
-.stamp-position-5 { left: 260px; top: 20px; }
-.stamp-position-6 { left: 20px; top: 80px; }
-.stamp-position-7 { left: 80px; top: 80px; }
-.stamp-position-8 { left: 140px; top: 80px; }
-.stamp-position-9 { left: 200px; top: 80px; }
-.stamp-position-10 { left: 260px; top: 80px; }
+
+/* 各スタンプの位置を個別に指定 */
+#stamp-1 { top: 257px; left: 412px; }
+#stamp-2 { top: 257px; left: 505px; }
+#stamp-3 { top: 257px; left: 599px; }
+#stamp-4 { top: 257px; left: 692px; }
+#stamp-5 { top: 257px; left: 785px; }
+#stamp-6 { top: 338px; left: 412px; }
+#stamp-7 { top: 338px; left: 505px; }
+#stamp-8 { top: 338px; left: 599px; }
+#stamp-9 { top: 338px; left: 692px; }
+#stamp-10 { top: 338px; left: 785px; }

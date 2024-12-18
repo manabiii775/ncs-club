@@ -7,8 +7,8 @@
   <div class="stamp-card">
     <%= image_tag "stamp-card", alt: "スタンプカード", class: "stamp-card-image" %>
     <div class="stamps">
-      <% @stamps.each do |stamp| %>
-        <%= image_tag "stamp.png", alt: "スタンプ", class: "stamp-image" %>
+      <% @stamps.each_with_index do |stamp, index| %>
+        <%= image_tag "stamp.png", alt: "スタンプ", class: "stamp-image", id: "stamp-#{index + 1}" %>
       <% end %>
     </div>
   </div>
