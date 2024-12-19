@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :stampcards, only: [:index, :show] do
     member do
       post 'add_stamp'
-      post 'claim_reward'
+      post 'redeem'
     end
   end
 end

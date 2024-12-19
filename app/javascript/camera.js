@@ -1,4 +1,56 @@
-document.addEventListener('DOMContentLoaded', initializeCamera);
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize camera when the DOM is ready
+  initializeCamera();
+
+  // Add event listener for redeem button
+  const redeemButton = document.getElementById('redeem-drink');
+  let isProcessing = false;
+
+  if (redeemButton) {
+    console.log('Redeem button found'); // 確認用ログ
+    redeemButton.addEventListener('click', async function() {
+      if (isProcessing) return; // 処理中なら何もしない
+      isProcessing = true;
+      console.log('Redeem button clicked'); // デバッグ用ログ
+
+      const stampCardContainer = document.querySelector('.stamp-card-main');
+      console.log('Stamp Card Container:', stampCardContainer); // デバッグ用ログ
+
+      if (stampCardContainer) {
+        const stampcardId = stampCardContainer.dataset.stampcardId;
+        console.log('Stampcard ID:', stampcardId); // デバッグ用ログ
+
+        try {
+          const response = await fetch(`/stampcards/${stampcardId}/redeem`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+            }
+          });
+          console.log('Redeem request sent'); // デバッグ用ログ
+          const data = await response.json();
+          console.log('Redeem response:', data); // デバッグ用ログ
+          alert(data.message);
+          // ページをリロードしてスタンプカードの状態をリセット
+          location.reload();
+        } catch (error) {
+          console.error('Error:', error);
+          alert("交換処理に失敗しました。エラーメッセージ: " + error.message);
+        } finally {
+          isProcessing = false; // 最後にフラグをリセット
+        }
+      } else {
+        console.error('Stamp Card Container not found'); // デバッグ用ログ
+        isProcessing = false; // エラーハンドリング時にもフラグをリセット
+      } 
+    }, { once: true }); // ボタンのクリックイベントリスナーを1回限りに設定
+  } else {
+    console.error('Redeem button not found'); // デバッグ用ログ
+  }
+  // Initialize the camera when the button is clicked
+  initializeCamera();
+});
 
 async function initializeCamera() {
   console.log("initializeCamera関数が呼び出されました");
@@ -100,3 +152,4 @@ async function initializeCamera() {
     console.error('カメラボタンが見つかりません。');
   }
 }
+
