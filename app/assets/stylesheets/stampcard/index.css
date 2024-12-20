@@ -18,7 +18,26 @@
   top: 30px;
 }
 
-.lists {
+.first_action{
+  position: absolute;
+  top: 247px;
+  left: 380px;
+  gap: 50px; /* 子要素間のスペースを設定 */
+}
+
+.login, .sign-up {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 50px 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.nav_lists {
   font-weight: 545;
   display: flex;
   justify-content: flex-end;
@@ -43,24 +62,6 @@
   color: white;
   padding: 10px;
 }
-
-.login {
-  border: 1px solid white;
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-  margin-right: 22px;
-}
-
-.sign-up {
-  border: 1px solid white;
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-  margin-right: 10px;
-} 
 
 .top-page {
   display: flex;

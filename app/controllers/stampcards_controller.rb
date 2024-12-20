@@ -88,4 +88,7 @@ class StampcardsController < ApplicationController
       render json: { message: "予期せぬエラーが発生しました: #{e.message}" }, status: :internal_server_error
   end
 
+  def check_login_status
+    render json: { logged_in: user_signed_in? }
+  end
 end

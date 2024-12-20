@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize camera when the DOM is ready
-  initializeCamera();
-
-  // Add event listener for redeem button
+  console.log('DOM fully loaded and parsed');
+  console.log('Turbo page loaded');
+  initializeCameraButton(); // ページ遷移後にカメラボタンの初期化
+  
+  // Redeemボタンのイベントリスナーを追加
   const redeemButton = document.getElementById('redeem-drink');
   let isProcessing = false;
 
@@ -48,11 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.error('Redeem button not found'); // デバッグ用ログ
   }
-  // Initialize the camera when the button is clicked
-  initializeCamera();
 });
 
-async function initializeCamera() {
+async function initializeCameraButton() {
   console.log("initializeCamera関数が呼び出されました");
   const startCameraButton = document.getElementById('start-camera');
   if (startCameraButton) {
@@ -151,5 +150,10 @@ async function initializeCamera() {
   } else {
     console.error('カメラボタンが見つかりません。');
   }
-}
+}  
 
+// ページ遷移時にカメラボタンを初期化するイベントリスナー
+document.addEventListener('turbo:load', function() {
+  console.log('Turbo page loaded');
+  initializeCameraButton(); // ページ遷移後にカメラボタンの初期化
+});
