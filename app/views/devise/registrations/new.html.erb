@@ -5,7 +5,7 @@
   <div class='form-wrap'>
     <div class='form-header'>
       <h1 class='form-header-text'>
-        会員登録情報
+        新規会員登録
       </h1>
     </div>
 
@@ -16,7 +16,25 @@
         <label class="form-text">ニックネーム</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40", autofocus: true %>
+      <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) N太郎", maxlength:"40", autofocus: true %>
+    </div>
+
+
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可"%>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">電話番号</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :phone_number, class:"input-default", id:"phone_number", placeholder:"電話番号を入力してください" %>
     </div>
 
     <div class="form-group">
@@ -36,22 +54,7 @@
                       end_year: (Time.now.year - 5),
                       date_separator: '%s'),
                     "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">メールアドレス</label>
-        <span class="indispensable">必須</span>
       </div>
-      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可"%>
-    </div>
-
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">電話番号</label>
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :phone_number, class:"input-default", id:"phone_number", placeholder:"電話番号を入力してください" %>
     </div>
 
     <div class="form-group">
