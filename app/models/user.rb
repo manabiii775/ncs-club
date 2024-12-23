@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
+  validates :email, presence: true
   validates :phone_number, presence: true
   validates :birthday, presence: true
+  validates :password, presence: true
 
   has_many :stampcards
 

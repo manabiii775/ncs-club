@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        phone_number: 電話番号
+        birthday: 生年月日
+      tweet:
+        text: テキスト
+        image: 画像

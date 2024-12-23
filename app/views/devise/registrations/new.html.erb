@@ -9,7 +9,22 @@
       </h1>
     </div>
 
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "エラー") %>が発生したので登録ができませんでした。</h2>
+        <ul>
+          <% custom_order = [:nickname, :email, :phone_number, :birthday, :password, :password_confirmation] %>
+          <% custom_order.each do |attribute| %>
+            <% if @user.errors[attribute].any? %>
+              <% @user.errors[attribute].each do |error| %>
+                <li><%= @user.errors.full_message(attribute, error) %></li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
 
     <div class="form-group">
       <div class='form-text-wrap'>
