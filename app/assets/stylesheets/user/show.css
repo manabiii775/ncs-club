@@ -1,0 +1,38 @@
+.mypage {
+  background: white;                  /* 背景色を白に設定 */
+  padding: 20px;                      /* 内側の余白を設定 */
+  border-radius: 10px;                /* 角を丸くする */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を付ける */
+  text-align: center;                 /* テキストを中央揃えにする */
+  max-width: 400px;                   /* 最大幅を設定 */
+  width: 100%;                        /* 幅を100%に設定 */
+  margin-top: 100px;                   /* 上部に余白を追加 */
+  margin-left: 430px;                 /* 左側に余白を追加 */
+}
+
+.mypage h1 {
+  margin-bottom: 20px;                /* 下部に余白を設定 */
+  font-size: 24px;                    /* フォントサイズを設定 */
+  color: #333;                        /* テキストの色を設定 */
+}
+
+.mypage p {
+  margin: 10px 0;                     /* 上下に余白を設定 */
+  font-size: 16px;                    /* フォントサイズを設定 */
+  color: #666;                        /* テキストの色を設定 */
+}
+
+.edit-profile-link {
+  display: inline-block;              /* インラインブロック要素として表示 */
+  margin-top: 20px;                   /* 上部に余白を設定 */
+  padding: 10px 20px;                 /* 内側の余白を設定 */
+  background-color: #007bff;          /* 背景色を設定 */
+  color: white;                       /* テキストの色を設定 */
+  text-decoration: none;              /* 下線を削除 */
+  border-radius: 5px;                 /* 角を丸くする */
+  transition: background-color 0.3s;  /* 背景色の変化にアニメーションを付ける */
+}
+
+.edit-profile-link:hover {
+  background-color: #0056b3;          /* ホバー時の背景色を設定 */
+}

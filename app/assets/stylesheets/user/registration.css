@@ -93,12 +93,27 @@
   margin-top: 50px;
 }
 
+
 .register-red-btn {
-  width: 100%;
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
-  line-height: 48px;
-  font-size: 16px;
-  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  margin-bottom: 4vh;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  margin-bottom: 4vh;
 }

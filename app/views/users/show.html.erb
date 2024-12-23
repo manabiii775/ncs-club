@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+
+<div class="mypage">
+  <h1><%= @user.nickname %>のマイページ</h1>
+  <p>メールアドレス: <%= @user.email %></p>
+  <p>電話番号: <%= @user.phone_number %></p>
+  <p>誕生日: <%= @user.birthday %></p>
+
+  <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "edit-profile-link" %>
+</div>
