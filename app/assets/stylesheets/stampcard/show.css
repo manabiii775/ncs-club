@@ -45,3 +45,14 @@
 #stamp-8 { top: 338px; left: 599px; }
 #stamp-9 { top: 338px; left: 692px; }
 #stamp-10 { top: 338px; left: 785px; }
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.redeem-drink {
+  width: 500px;
+}
