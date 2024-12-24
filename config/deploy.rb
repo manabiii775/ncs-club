@@ -33,12 +33,12 @@ namespace :deploy do
   end
 
   #デプロイ後にマイグレーションを実行するためのタスク
-  desc 'Run rake tasks'
+  desc 'Run rails tasks'
   task :migrate do
     on roles(:app) do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :bundle, :exec, :rake, 'db:migrate'
+          execute :bundle, :exec, :rails, 'db:migrate'
         end
       end
     end
