@@ -91,58 +91,62 @@ async function initializeCameraButton() {
       }
 
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        console.log("ビデオストリームが開始されました");
-        video.srcObject = stream;
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          console.log("ビデオストリームが開始されました");
+          video.srcObject = stream;
 
-        video.addEventListener('play', () => {
-          const tick = () => {
-            if (video.paused || video.ended || isProcessing) return;
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-            const code = jsQR(imageData.data, imageData.width, imageData.height);
-            console.log("QRコード認識結果: ", code);
+          video.addEventListener('play', () => {
+            const tick = () => {
+              if (video.paused || video.ended || isProcessing) return;
+              context.drawImage(video, 0, 0, canvas.width, canvas.height);
+              const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+              const code = jsQR(imageData.data, imageData.width, imageData.height);
+              console.log("QRコード認識結果: ", code);
 
-            if (code) {
-              isProcessing = true;
-              const requestData = {
-                qr_code: code.data,
-                user_id: userId,
-                stampcard_id: stampcardId
-              };
+              if (code) {
+                isProcessing = true;
+                const requestData = {
+                  qr_code: code.data,
+                  user_id: userId,
+                  stampcard_id: stampcardId
+                };
 
-              console.log("送信するデータ:", JSON.stringify(requestData));
-              console.log("リクエストURL:", `/stampcards/${stampcardId}/add_stamp`);
+                console.log("送信するデータ:", JSON.stringify(requestData));
+                console.log("リクエストURL:", `/stampcards/${stampcardId}/add_stamp`);
 
-              fetch(`/stampcards/${stampcardId}/add_stamp`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-                },
-                body: JSON.stringify(requestData)
-              }).then(response => response.json())
-                .then(data => {
-                  alert(data.message);
-                  isProcessing = false;
-                })
-                .catch(error => {
-                  console.error('Error:', error);
-                  alert("スタンプの追加に失敗しました。エラーメッセージ: " + error.message);
-                  isProcessing = false;
-                });
+                fetch(`/stampcards/${stampcardId}/add_stamp`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+                  },
+                  body: JSON.stringify(requestData)
+                }).then(response => response.json())
+                  .then(data => {
+                    alert(data.message);
+                    isProcessing = false;
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                    alert("スタンプの追加に失敗しました。エラーメッセージ: " + error.message);
+                    isProcessing = false;
+                  });
 
-              video.style.display = 'none';
-              stream.getTracks().forEach(track => track.stop());
-            } else {
-              requestAnimationFrame(tick);
-            }
-          };
-          tick();
-        });
+                video.style.display = 'none';
+                stream.getTracks().forEach(track => track.stop());
+              } else {
+                requestAnimationFrame(tick);
+              }
+            };
+            tick();
+          });
 
-        await video.play();
-        video.style.display = 'block';
+          await video.play();
+          video.style.display = 'block';
+        } else {
+          console.error('getUserMediaがサポートされていません。');
+        }
       } catch (error) {
         console.error("ビデオの開始エラー: ", error);
       }
