@@ -9,7 +9,4 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update]
-
-  # 追加: ルートパスへのPOSTリクエストを処理するためのルート
-  post '/', to: 'stampcards#index'
 end
