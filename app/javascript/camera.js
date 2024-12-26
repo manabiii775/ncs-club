@@ -161,3 +161,4 @@ document.addEventListener('turbo:load', function() {
   console.log('Turbo page loaded');
   initializeCameraButton(); // ページ遷移後にカメラボタンの初期化
 });
+
