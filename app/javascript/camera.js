@@ -125,6 +125,7 @@ async function initializeCameraButton() {
                 }).then(response => response.json())
                   .then(data => {
                     alert(data.message);
+                    window.location.href = `/stampcards/${stampcardId}`; // スタンプカード画面に遷移
                     isProcessing = false;
                   })
                   .catch(error => {
