@@ -1,82 +1,60 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
+NCS-CLUB
 
-Things you may want to cover:
+# アプリケーション概要
+お店に来店してくれたお客さんがスタンプを集められるアプリ
 
-* Ruby version
+# URL
+http://54.92.87.36/  
+ログイン・新規会員登録・スタンプカードの確認まで出来ますがまだSLL化ができていないため
+カメラ機能が起動せずQRコードも読み込めない状況です。
+随時URLをSSL化する予定です。
 
-* System dependencies
+# テスト用アカウント
+・BASIC認証ID：admin  
+・BASIC認証パスワード：2222  
+・メールアドレス：test@123  
+・パスワード：test123
 
-* Configuration
+# 利用方法
+1.ログインか新規会員登録をします。  
+2.カメラを起動というボタンがあるのでクリックするとカメラが起動してQRコードを読み込みます。  
+3.QRコードを読み込みとスタンプカード画面に遷移してスタンプが1日1つまで付与されます。  
+4.スタンプが全部で10個集まるとドリンク１杯と交換できるボタンが表示されます。  
+5.交換ボタンをクリックするとスタンプカードが初期化しまたスタンプを集められる状態になります。
 
-* Database creation
+# アプリケーションを作成した背景
+アルバイトをしている小規模のバーに顧客が定期的に来店せず
+一回きりのお客さんが多いため安定した集客が出来ていないので
+スタンプカードを作り安定した集客を確保する目的で作成をしました。
 
-* Database initialization
+# 実装予定の機能
+・イベント情報の通知機能  
+・デジタルウォレットでの店内支払い機能  
+・webサーバをSSL化対応
 
-* How to run the test suite
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/a53f76f2563e473cffcce90d599c1e77.png)](https://gyazo.com/a53f76f2563e473cffcce90d599c1e77)
 
-* Services (job queues, cache servers, search engines, etc.)
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/be52d07f37376cfc9877e1a41a4f2cd2.png)](https://gyazo.com/be52d07f37376cfc9877e1a41a4f2cd2)
 
-* Deployment instructions
+# 開発環境
+フロントエンド  
+・html  
+・css  
+・java script  
+バックエンド  
+・ruby on rails  
+インフラ  
+・aws  
+テキストエディタ  
+・vs code
 
-* ...
+# 工夫したポイント
+始めてアプリを見たユーザーにも分かりやすくログインや新規会員登録等を配置したところになります。
 
-# テーブル設計
-
-## users テーブル
-
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| phone_number       | string | null: false               |
-| encrypted_password | string | null: false               |
-| birthday           | date   | null: false               |
-
-### Association
-- has_many :stampcards
-- has_many :rewards
-- belongs_to :qr_code
-
-## stampcards テーブル
-
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| total_stamps       | integer   | null: false                    |
-| user               |references | null: false, foreign_key: true |
-
-### Association
-- has_many :stamps
-- belongs_to :user
-
-## stamps テーブル
-
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| stamp_number       | integer   | null: false                    |
-| stampcard          |references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :stampcard
-
-## qr_codes テーブル
-
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| code               | integer   | null: false                    |
-
-### Association
-- has_many :users
-
-## rewards テーブル
-
-| Column             | Type      | Options                        |
-| ------------------ | --------- | ------------------------------ |
-| reward_type        | string    | null: false                    |
-| redeemed_at        | date      | null: false                    |
-| user               |references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
+# 制作時間
+2週間程度かかりました。
